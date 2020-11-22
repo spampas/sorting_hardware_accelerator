@@ -9,7 +9,7 @@ entity sortingcell_comparator_stage is generic(N: INTEGER := 5);
 		received_flag: in std_logic;
 		
 		forwarded_data: out std_logic_vector(N-1 downto 0);
-		forward_flag: in std_logic;
+		forward_flag: out std_logic;
 
 		clk: in std_logic;
 		rst: in std_logic
@@ -20,32 +20,33 @@ end sortingcell_comparator_stage;
 architecture bhv of sortingcell_comparator_stage is
 
 	signal empty : boolean := true;
-	signal current_data: std_logic_vector(N-1 down to 0) := (others => '0');
+	signal change_state: boolean := false;
+	signal current_data: std_logic_vector(N-1 downto 0) := (others => '0');
 begin
+
+	change_state <= (received_data < current_data) or empty;
+	forwarded_data <= current_data;
+	forward_flag <= '1' when (change_state and not empty) else '0';
 	
 	sort: process(clk)
 		begin
 		if(rising_edge(clk)) then
 			if(rst = '1') then
-				forwarded_data <= (others => '0');
-				forward_flag <= '0';
 				empty <= true;
 			else
-				if( receive_flag = '1') then
+				if(received_flag = '1') then
 					case empty is
-						when false =>
-							if unsigned(received_data) <= unsigned(current_data) then
-				
-							else
-								forward_flag <= '1';
-								forwarded_data <= received_data;
-					
-							end if;
 						when true =>
 							current_data <= received_data;
 							empty <= false;
+						when false =>
+							if(change_state) then
+								current_data <= received_data;
+								empty <= false;
+							end if;
 					end case;
 				end if;
+				
 			end if;
 		end if;
 	end process;
