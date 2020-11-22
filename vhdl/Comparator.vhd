@@ -18,37 +18,68 @@ end sortingcell_comparator_stage;
 
 
 architecture bhv of sortingcell_comparator_stage is
-
+	
 	signal empty : boolean := true;
-	signal change_state: boolean := false;
-	signal current_data: std_logic_vector(N-1 downto 0) := (others => '0');
+	signal current_data : std_logic_vector (N-1 downto 0) := (others => '0');
 begin
 
-	change_state <= (received_data < current_data) or empty;
-	forwarded_data <= current_data;
-	forward_flag <= '1' when (change_state and not empty) else '0';
-	
-	sort: process(clk)
-		begin
-		if(rising_edge(clk)) then
-			if(rst = '1') then
+	state: process(clk)
+	begin
+		if rising_edge(clk) then
+			if rst = '1' then
 				empty <= true;
 			else
-				if(received_flag = '1') then
+				if received_flag = '1' then
+					empty <= false;
+				end if;
+			end if;
+		end if;
+	end process state;
+
+	data: process(clk)
+	begin
+		if rising_edge(clk) then
+			if rst = '1' then
+				current_data <= (others => '0');
+				forwarded_data <= (others =>'0');
+			else
+				if received_flag = '1' then
 					case empty is
 						when true =>
 							current_data <= received_data;
-							empty <= false;
 						when false =>
-							if(change_state) then
+							if received_data < current_data then
+								forwarded_data <= current_data;
 								current_data <= received_data;
-								empty <= false;
+							else
+								forwarded_data <= received_data;
 							end if;
 					end case;
 				end if;
 				
+				
 			end if;
+
 		end if;
-	end process;
+	end process data;
+
+	flag: process(clk)
+	begin
+		if rising_edge(clk) then
+			if rst = '1' then
+				forward_flag <= '0';
+			else
+				if received_flag = '1' and not empty then
+					forward_flag <= '1';
+				else
+					forward_flag <= '0';
+				end if;	
+			end if;
+
+		end if;
+	end process flag;
+	
+
+	
 end bhv;
 	
