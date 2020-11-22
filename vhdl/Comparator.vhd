@@ -22,6 +22,8 @@ architecture bhv of sortingcell_comparator_stage is
 	signal empty : boolean := true;
 	signal current_data : std_logic_vector (N-1 downto 0) := (others => '0');
 begin
+	
+	--forward_flag <= '1' when( received_flag = '1' and not empty) else '0';
 
 	state: process(clk)
 	begin
@@ -55,6 +57,8 @@ begin
 								forwarded_data <= received_data;
 							end if;
 					end case;
+				else 
+					forwarded_data <= current_data;
 				end if;
 				
 				
@@ -78,8 +82,6 @@ begin
 
 		end if;
 	end process flag;
-	
-
 	
 end bhv;
 	
