@@ -53,7 +53,7 @@ begin
 						when true =>
 							current_data <= received_data;
 						when false =>
-							if received_data < current_data then
+							if unsigned(received_data) < unsigned(current_data) then
 								forwarded_data <= current_data;
 								current_data <= received_data;
 							else

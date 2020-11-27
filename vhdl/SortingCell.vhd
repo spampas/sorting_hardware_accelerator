@@ -3,7 +3,7 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 
-entity SortingCell is generic( M: INTEGER := 3; N: INTEGER := 5);
+entity SortingCell is generic( M: INTEGER := 5; N: INTEGER := 8);
 
 	port(
 
@@ -24,7 +24,7 @@ architecture bhv of SortingCell is
 
 	component sortingcell_sorting_stage 
 
-		generic(N: INTEGER := 5);
+		generic(N: INTEGER := 8);
 		port(
 			received_data: in std_logic_vector(N-1 downto 0);
 			received_flag: in std_logic;
