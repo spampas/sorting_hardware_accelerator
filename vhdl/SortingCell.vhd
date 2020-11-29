@@ -22,7 +22,7 @@ end SortingCell;
 
 architecture bhv of SortingCell is
 
-	component sortingcell_sorting_stage 
+	component sorting_stage 
 
 		generic(N: INTEGER := 8);
 		port(
@@ -56,7 +56,7 @@ begin
 	sorting_pipeline: for stage in 0 to M-1 generate
 
 		first_stage: if stage = 0 generate
-			begin frist_stage : sortingcell_sorting_stage port map ( clk => clk,
+			begin frist_stage : sorting_stage port map ( clk => clk,
 									    							 rst => stage_rst(0),
 									    							 received_data => symbol_in,
 									    							 received_flag => reading_data,
@@ -66,7 +66,7 @@ begin
 
 		last_stage: if stage = M-1 generate
 
-			begin last_stage : sortingcell_sorting_stage port map ( clk => clk,
+			begin last_stage : sorting_stage port map ( clk => clk,
 									    							rst => stage_rst(stage),
 									    							received_data => stage_data(stage -1),
 									    							received_flag => stage_flag(stage -1),
@@ -75,7 +75,7 @@ begin
 
 		normal_stage : if (stage /= 0) and (stage /= M-1) generate
 
-            		begin regular_cells : sortingcell_sorting_stage port map (  clk => clk,
+            		begin regular_cells : sorting_stage port map (  clk => clk,
                                                             					rst => stage_rst(stage),
                                                             					received_data => stage_data(stage -1),
 						           	 											received_flag => stage_flag(stage -1),
