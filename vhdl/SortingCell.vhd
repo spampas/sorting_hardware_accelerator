@@ -42,7 +42,7 @@ architecture bhv of SortingCell is
 	type reset is array (0 to M-1) of std_logic;
 
 
-	signal stage_write_enable : std_logic := '0';
+	signal reading_data : std_logic := '0';
 	signal stage_data : data;
 	signal stage_flag : flag;
 	signal stage_rst : reset := (others => '0');
@@ -57,30 +57,30 @@ begin
 
 		first_stage: if stage = 0 generate
 			begin frist_stage : sortingcell_sorting_stage port map ( clk => clk,
-									    	rst => stage_rst(0),
-									    	received_data => symbol_in,
-									    	received_flag => stage_write_enable,
-									    	forwarded_data => stage_data(stage),
-									    	forward_flag => stage_flag(stage));
+									    							 rst => stage_rst(0),
+									    							 received_data => symbol_in,
+									    							 received_flag => reading_data,
+									    							 forwarded_data => stage_data(stage),
+									    							 forward_flag => stage_flag(stage));
 		end generate first_stage;
 
 		last_stage: if stage = M-1 generate
 
 			begin last_stage : sortingcell_sorting_stage port map ( clk => clk,
-									    	rst => stage_rst(stage),
-									    	received_data => stage_data(stage -1),
-									    	received_flag => stage_flag(stage -1),
-									    	forwarded_data => stage_data(stage));
+									    							rst => stage_rst(stage),
+									    							received_data => stage_data(stage -1),
+									    							received_flag => stage_flag(stage -1),
+									    							forwarded_data => stage_data(stage));
 		end generate last_stage;
 
 		normal_stage : if (stage /= 0) and (stage /= M-1) generate
 
-            		begin regular_cells : sortingcell_sorting_stage port map (   clk => clk,
-                                                            				rst => stage_rst(stage),
-                                                            				received_data => stage_data(stage -1),
-						           	 			received_flag => stage_flag(stage -1),
-							    				forwarded_data => stage_data(stage),
-						            				forward_flag => stage_flag(stage));
+            		begin regular_cells : sortingcell_sorting_stage port map (  clk => clk,
+                                                            					rst => stage_rst(stage),
+                                                            					received_data => stage_data(stage -1),
+						           	 											received_flag => stage_flag(stage -1),
+							    												forwarded_data => stage_data(stage),
+						            											forward_flag => stage_flag(stage));
             	end generate normal_stage;
 	end generate sorting_pipeline;
 
@@ -91,68 +91,46 @@ begin
 	end generate rst_setup;
 
 
-	stage_write_enable <= '1' when ( write_enable = '1' and counter /= M) else '0';
+	reading_data <= '1' when ( write_enable = '1' and counter /= M and not serving_data_request) else '0';
+
+	symbol_out <= stage_data(actual_output) when (serving_data_request) else (others => 'Z');
 
 
-
-	
-	counter_state: process(clk)
+	actual_output_state: process(clk)
 	begin
 		if rising_edge(clk) then
 			if rst = '1' then
-				counter <= 0;
+				actual_output <= 0;
+			elsif serving_data_request then
+				actual_output <= actual_output +1;
 			else
-				if write_enable = '1' and counter < M then
-					counter <= counter +1;
-				end if;
-				if serving_data_request then
-					counter <= counter -1;
-					actual_output <= actual_output +1;
-				else
-					actual_output <= 0;
-				end if;
+				actual_output <= 0;
 			end if;
 		end if;
-	end process counter_state;
+	end process actual_output_state;
+
 
 	output_state: process(clk)
 	begin
 		if rising_edge(clk) then
 			if rst = '1' then
+				counter <= 0;
 				data_requested <= false;
 				serving_data_request <= false;
-			else
-				if read_symbols = '1' and counter >0 and write_enable = '1' then
+			elsif reading_data = '1' then
+				counter <= counter +1;
+				if read_symbols = '1' then
 					data_requested <= true;
 				end if;
-				if read_symbols = '1' and counter >0 and write_enable = '0' then
-					serving_data_request <= true;
-				end if;
-				if data_requested and write_enable = '0' then
-					serving_data_request <= true;
-					data_requested <= false;
-				end if;
-				if counter = 0 then
-					serving_data_request <= false;
-				end if;
+			elsif reading_data = '0' and (data_requested or (counter >0 and read_symbols = '1')) then
+				serving_data_request <= true;
+				data_requested <= false;
+			elsif actual_output = counter -1 then
+				serving_data_request <= false;
+				counter <= 0;
 			end if;
 		end if;
 	end process output_state;
-
-
-	output: process(clk)
-		begin
-			if rising_edge(clk) then
-				if rst = '1' then
-				else
-					if serving_data_request and counter >0 and write_enable = '0' then
-						symbol_out <= stage_data(actual_output);
-					end if;
-				end if;
-			end if;
-	end process output;
-
-
 
 
 end bhv;

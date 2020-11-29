@@ -67,7 +67,7 @@ begin
 			rst => rst);
 --
 
-	CLOCK: clk <= (not(clk)and end_sim) after T_CLK/2;
+	CLOCK: clk <= (not(clk) and end_sim) after T_CLK/2;
 
 	d_process : process(clk)
 		variable t : integer := 0;
@@ -82,7 +82,7 @@ begin
 				when 6 => write_enable <= '1'; symbol_in <= std_logic_vector(to_unsigned(5,8)); read_symbols <= '0';
 				when 7 => write_enable <= '0'; symbol_in <= (others => '0'); read_symbols <= '0';
 				when 8 => write_enable <= '0'; symbol_in <= (others => '0'); read_symbols <= '0';
-				when 9 => write_enable <= '0'; symbol_in <= std_logic_vector(to_unsigned(6,8)); read_symbols <= '0';
+				when 9 => write_enable <= '1'; symbol_in <= std_logic_vector(to_unsigned(6,8)); read_symbols <= '0';
 				when 10 => write_enable <= '1'; symbol_in <= std_logic_vector(to_unsigned(10,8)); read_symbols <= '1';
 				when 11 => write_enable <= '1'; symbol_in <= std_logic_vector(to_unsigned(8,8)); read_symbols <= '0';
 				when 12 => write_enable <= '1'; symbol_in <= (others => '0'); read_symbols <= '0';
