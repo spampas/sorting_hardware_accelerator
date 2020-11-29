@@ -56,50 +56,50 @@ begin
 	sorting_pipeline: for stage in 0 to M-1 generate
 
 		first_stage: if stage = 0 generate
-			begin frist_stage : sorting_stage port map ( clk => clk,
-									    							 rst => stage_rst(0),
-									    							 received_data => symbol_in,
-									    							 received_flag => reading_data,
-									    							 forwarded_data => stage_data(stage),
-									    							 forward_flag => stage_flag(stage));
+			begin frist_stage : sorting_stage port map ( 	clk => clk,
+									rst => stage_rst(0),
+									received_data => symbol_in,
+									received_flag => reading_data,
+									forwarded_data => stage_data(stage),
+									forward_flag => stage_flag(stage));
 		end generate first_stage;
 
 		last_stage: if stage = M-1 generate
 
-			begin last_stage : sorting_stage port map ( clk => clk,
-									    							rst => stage_rst(stage),
-									    							received_data => stage_data(stage -1),
-									    							received_flag => stage_flag(stage -1),
-									    							forwarded_data => stage_data(stage));
+			begin last_stage : sorting_stage port map ( 	clk => clk,
+									rst => stage_rst(stage),
+									received_data => stage_data(stage -1),
+									received_flag => stage_flag(stage -1),
+									forwarded_data => stage_data(stage));
 		end generate last_stage;
 
 		normal_stage : if (stage /= 0) and (stage /= M-1) generate
 
             		begin regular_cells : sorting_stage port map (  clk => clk,
-                                                            					rst => stage_rst(stage),
-                                                            					received_data => stage_data(stage -1),
-						           	 											received_flag => stage_flag(stage -1),
-							    												forwarded_data => stage_data(stage),
-						            											forward_flag => stage_flag(stage));
+                                                            		rst => stage_rst(stage),
+                                                            		received_data => stage_data(stage -1),
+									received_flag => stage_flag(stage -1),
+							    		forwarded_data => stage_data(stage),
+						            		forward_flag => stage_flag(stage));
             	end generate normal_stage;
 	end generate sorting_pipeline;
 
 
 
 	rst_setup: for k in 0 to M-1 generate
-		stage_rst(k) <= '1' when( rst = '1' or (serving_data_request and actual_output = k)) else '0';
+		stage_rst(k) <= '0' when( rst = '0' or (serving_data_request and actual_output = k)) else '1';
 	end generate rst_setup;
 
 
 	reading_data <= '1' when ( write_enable = '1' and counter /= M and not serving_data_request) else '0';
 
-	symbol_out <= stage_data(actual_output) when (serving_data_request) else (others => 'Z');
+	symbol_out <= stage_data(actual_output) when (serving_data_request) else (others => 'X');
 
 
 	actual_output_state: process(clk)
 	begin
 		if rising_edge(clk) then
-			if rst = '1' then
+			if rst = '0' then
 				actual_output <= 0;
 			elsif serving_data_request then
 				actual_output <= actual_output +1;
@@ -113,7 +113,7 @@ begin
 	output_state: process(clk)
 	begin
 		if rising_edge(clk) then
-			if rst = '1' then
+			if rst = '0' then
 				counter <= 0;
 				data_requested <= false;
 				serving_data_request <= false;

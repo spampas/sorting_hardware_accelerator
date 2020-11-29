@@ -82,21 +82,24 @@ begin
 			t := 0;
 		elsif(rising_edge(clk)) then
 			case(t) is
-				when 1 => symbol_in <= (others => 'X');
+				when 1 => symbol_in <= (others => '0');
 				when 2 => symbol_in <= std_logic_vector(to_unsigned(3,8)); write_enable <= '1'; 
 				when 3 => symbol_in <= std_logic_vector(to_unsigned(1,8));
 				when 4 => symbol_in <= std_logic_vector(to_unsigned(4,8)); read_symbols <= '1';
 				when 5 => symbol_in <= std_logic_vector(to_unsigned(2,8)); read_symbols <= '0';
 				when 6 => symbol_in <= std_logic_vector(to_unsigned(5,8));
 				when 7 => symbol_in <= (others => 'X'); write_enable <= '0';
-				when 8 => null;
+				when 8 => symbol_in <= (others => 'X');
 				when 9 => symbol_in <= std_logic_vector(to_unsigned(6,8)); write_enable <= '1';
 				when 10 => symbol_in <= std_logic_vector(to_unsigned(10,8)); read_symbols <= '1';
 				when 11 => symbol_in <= std_logic_vector(to_unsigned(8,8)); read_symbols <= '0';
 				when 12 => symbol_in <= (others => 'X');
-				when 13 => write_enable <= '0';
+				when 13 => symbol_in <= (others => 'X'); write_enable <= '0';
 				when 14 => symbol_in <= std_logic_vector(to_unsigned(99,8)); write_enable <= '1';
-				when 15 => symbol_in <= (others => 'X'); write_enable <= '0'; 
+				when 15 => symbol_in <= (others => '0'); write_enable <= '0'; 
+				when 16 => symbol_in <= (others => 'X');
+				when 17 => symbol_in <= (others => 'X');
+				when 18 => symbol_in <= (others => 'X');
 
 				when 21 => end_sim <= '0';
 				when others => null;
