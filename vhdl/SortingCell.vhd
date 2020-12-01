@@ -93,7 +93,7 @@ begin
 
 	reading_data <= '1' when ( write_enable = '1' and counter /= M and not serving_data_request) else '0';
 
-	symbol_out <= stage_data(actual_output) when (serving_data_request) else (others => 'X');
+	symbol_out <= stage_data(actual_output) when (serving_data_request) else (others => '0');
 
 
 	actual_output_state: process(clk)
@@ -125,7 +125,7 @@ begin
 			elsif reading_data = '0' and (data_requested or (counter >0 and read_symbols = '1')) then
 				serving_data_request <= true;
 				data_requested <= false;
-			elsif actual_output = counter -1 then
+			elsif actual_output = M -1 then
 				serving_data_request <= false;
 				counter <= 0;
 			end if;
