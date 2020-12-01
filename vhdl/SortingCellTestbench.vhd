@@ -19,13 +19,13 @@ architecture bhv of sortingcell_tb is
 constant N : integer := 8;
 constant M : integer := 5;
 
-constant T_CLK : time := 100 ns;
-constant T_RESET : time := 200 ns;
+constant T_CLK : time := 10 ns;
+constant T_RESET : time := 100 ns;
 --
 
 --signals
 signal clk : std_logic := '0';
-signal rst : std_logic := '0';
+signal rst : std_logic := '1';
 
 signal write_enable : std_logic := '0';
 signal symbol_in : std_logic_vector(N-1 downto 0);
@@ -59,7 +59,7 @@ begin
 
 	
 	clk <= (not(clk) and end_sim) after T_CLK/2;
-	rst <= '1' after T_RESET;
+	rst <= '0' after T_RESET;
 	
 --port mapping
 	dut: SortingCell generic map( N => N, M => M)
@@ -83,22 +83,26 @@ begin
 		elsif(rising_edge(clk)) then
 			case(t) is
 				when 1 => symbol_in <= (others => 'X');
-				when 2 => symbol_in <= std_logic_vector(to_unsigned(3,8)); write_enable <= '1'; 
+				when 2 => symbol_in <= std_logic_vector(to_unsigned(3,8)); write_enable <= '1';    --Inizia la scrittura (max 5 elementi)
 				when 3 => symbol_in <= std_logic_vector(to_unsigned(1,8));
-				when 4 => symbol_in <= std_logic_vector(to_unsigned(4,8)); read_symbols <= '1';
-				when 5 => symbol_in <= std_logic_vector(to_unsigned(2,8)); read_symbols <= '0';
-				when 6 => symbol_in <= std_logic_vector(to_unsigned(5,8));
-				when 7 => symbol_in <= (others => 'X'); write_enable <= '0';
-				when 8 => null;
-				when 9 => symbol_in <= std_logic_vector(to_unsigned(6,8)); write_enable <= '1';
-				when 10 => symbol_in <= std_logic_vector(to_unsigned(10,8)); read_symbols <= '1';
-				when 11 => symbol_in <= std_logic_vector(to_unsigned(8,8)); read_symbols <= '0';
-				when 12 => symbol_in <= (others => 'X');
-				when 13 => write_enable <= '0';
-				when 14 => symbol_in <= std_logic_vector(to_unsigned(99,8)); write_enable <= '1';
-				when 15 => symbol_in <= (others => 'X'); write_enable <= '0'; 
-
-				when 21 => end_sim <= '0';
+				when 4 => symbol_in <= std_logic_vector(to_unsigned(3,8));
+				when 5 => symbol_in <= std_logic_vector(to_unsigned(2,8)); 
+				when 6 => symbol_in <= std_logic_vector(to_unsigned(4,8));	-- Ultimo elemento
+				when 7 => symbol_in <= std_logic_vector(to_unsigned(21,8));      -- Overflow: Viene scartato
+				when 8 => symbol_in <= (others => 'X'); write_enable <= '0';	-- Termina la scrittura
+				when 9 => read_symbols <= '1';	--Richiesta di lettura (parte subito e impiega 5 clock)
+				when 10 => read_symbols <= '0';
+				when 11 => symbol_in <= std_logic_vector(to_unsigned(21,8)); write_enable <= '1'; --Richiesta di scrittura durante una lettura (ignorata)
+				when 12 => symbol_in <= (others => 'X'); write_enable <= '0';
+				when 13 => null;	--Termina la lettura, il vettore viene inizializzato nuovamente a zero
+				when 14 => read_symbols <= '1';	--Lettura su insieme vuoto (Ritorna 5 zeri)
+				when 19 => symbol_in <= std_logic_vector(to_unsigned(97,8)); write_enable <= '1'; --Inizia la scrittura
+				when 20 => symbol_in <= std_logic_vector(to_unsigned(4,8));
+				when 21 => symbol_in <= std_logic_vector(to_unsigned(15,8));
+				when 22 => symbol_in <= std_logic_vector(to_unsigned(21,8)); read_symbols <= '1'; --Lettura anticipata: verranno letti k valori corretti preceduti da M-K zeri. Scrittura ignorata
+				when 23 => symbol_in <= (others => 'X'); read_symbols <= '0'; write_enable <= '0';
+				when 26 => null; --Termina la lettura
+				when 30 => end_sim <= '0';
 				when others => null;
 			end case;
 			t := t+1;
