@@ -122,7 +122,7 @@ begin
 				if read_symbols = '1' then
 					data_requested <= true;
 				end if;
-			elsif reading_data = '0' and (data_requested or (counter >0 and read_symbols = '1')) then
+			elsif reading_data = '0' and (data_requested or  read_symbols = '1') then
 				serving_data_request <= true;
 				data_requested <= false;
 			elsif actual_output = M -1 then
