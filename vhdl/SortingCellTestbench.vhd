@@ -20,7 +20,7 @@ constant N : integer := 8;
 constant M : integer := 5;
 
 constant T_CLK : time := 10 ns;
-constant T_RESET : time := 100 ns;
+constant T_RESET : time := 50 ns;
 --
 
 --signals
@@ -59,7 +59,7 @@ begin
 
 	
 	clk <= (not(clk) and end_sim) after T_CLK/2;
-	rst <= '0' after T_RESET;
+	rst <= '1' after T_RESET;
 	
 --port mapping
 	dut: SortingCell generic map( N => N, M => M)
@@ -79,30 +79,34 @@ begin
 			write_enable <= '0';
 			read_symbols <= '0';
 			end_sim <= '1';
+			symbol_in <= (others => 'X');
 			t := 0;
 		elsif(rising_edge(clk)) then
 			case(t) is
-				when 1 => symbol_in <= (others => 'X');
-				when 2 => symbol_in <= std_logic_vector(to_unsigned(3,8)); write_enable <= '1';    --Inizia la scrittura (max 5 elementi)
-				when 3 => symbol_in <= std_logic_vector(to_unsigned(1,8));
-				when 4 => symbol_in <= std_logic_vector(to_unsigned(3,8));
-				when 5 => symbol_in <= std_logic_vector(to_unsigned(2,8)); 
-				when 6 => symbol_in <= std_logic_vector(to_unsigned(4,8));	-- Ultimo elemento
-				when 7 => symbol_in <= std_logic_vector(to_unsigned(21,8));      -- Overflow: Viene scartato
-				when 8 => symbol_in <= (others => 'X'); write_enable <= '0';	-- Termina la scrittura
-				when 9 => read_symbols <= '1';	--Richiesta di lettura (parte subito e impiega 5 clock)
-				when 10 => read_symbols <= '0';
-				when 11 => symbol_in <= std_logic_vector(to_unsigned(21,8)); write_enable <= '1'; --Richiesta di scrittura durante una lettura (ignorata)
+				when 1 => symbol_in <= std_logic_vector(to_unsigned(3,8)); write_enable <= '1';    --Start to write (5 numbers)
+				when 2 => symbol_in <= std_logic_vector(to_unsigned(1,8));
+				when 3 => symbol_in <= std_logic_vector(to_unsigned(3,8));
+				when 4 => symbol_in <= std_logic_vector(to_unsigned(2,8)); 
+				when 5 => symbol_in <= std_logic_vector(to_unsigned(0,8));	-- Last element
+				when 6 => symbol_in <= std_logic_vector(to_unsigned(9,8));      -- Overflow: 9 is discarded
+				when 7 => symbol_in <= (others => 'X'); write_enable <= '0';	-- Stop writing
+				when 8 => read_symbols <= '1';	--Read request (starts after one clock and lasts for 5 clocks). Sequence: [0 1 2 3 3]
+				when 9 => read_symbols <= '0';  --The read request stay to 1 only for one clock every time
+				when 10 => null;
+				when 11 => symbol_in <= std_logic_vector(to_unsigned(9,8)); write_enable <= '1'; --Write request during a reading (ignored)
 				when 12 => symbol_in <= (others => 'X'); write_enable <= '0';
-				when 13 => null;	--Termina la lettura, il vettore viene inizializzato nuovamente a zero
-				when 14 => read_symbols <= '1';	--Lettura su insieme vuoto (Ritorna 5 zeri)
-				when 19 => symbol_in <= std_logic_vector(to_unsigned(97,8)); write_enable <= '1'; --Inizia la scrittura
-				when 20 => symbol_in <= std_logic_vector(to_unsigned(4,8));
-				when 21 => symbol_in <= std_logic_vector(to_unsigned(15,8));
-				when 22 => symbol_in <= std_logic_vector(to_unsigned(21,8)); read_symbols <= '1'; --Lettura anticipata: verranno letti k valori corretti preceduti da M-K zeri. Scrittura ignorata
-				when 23 => symbol_in <= (others => 'X'); read_symbols <= '0'; write_enable <= '0';
-				when 26 => null; --Termina la lettura
-				when 30 => end_sim <= '0';
+				when 13 => null;	--End of reading. The vector of numbers is emptied (it contains now 5 zeros)
+				when 14 => read_symbols <= '1';	--Read request for a empty vector. Reads this sequence: [0 0 0 0 0]
+				when 15 => read_symbols <= '0';
+				when 19 => null;	--End of reading. The vector of numbers is emptied (it contains now 5 zeros)
+				when 20 => symbol_in <= std_logic_vector(to_unsigned(7,8)); write_enable <= '1'; read_symbols <='1'; --Both writing request and reading request: it writes until write_enable is 1, then it reads
+				when 21 => symbol_in <= std_logic_vector(to_unsigned(4,8)); read_symbols <= '0';
+				when 22 => symbol_in <= std_logic_vector(to_unsigned(9,8));  
+				when 23 => symbol_in <= (others => 'X'); write_enable <= '0'; --Finish to write. The next clock start to read with a non-full vector. Sequence: [4 7 9 0 0]
+				when 24 => read_symbols <= '1'; --Reading request when a reading is performed: ignored
+ 				when 25 => read_symbols <= '0'; 
+				
+				when 30 => end_sim <= '0';  --End simulation
 				when others => null;
 			end case;
 			t := t+1;
