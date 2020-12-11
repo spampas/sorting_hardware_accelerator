@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Sat Dec  5 16:02:03 2020
-| Host         : PC-LORENZO running 64-bit major release  (build 9200)
+| Date         : Fri Dec 11 12:22:58 2020
+| Host         : DESKTOP-80J60IL running 64-bit major release  (build 9200)
 | Command      : report_methodology -file SortingCell_methodology_drc_routed.rpt -pb SortingCell_methodology_drc_routed.pb -rpx SortingCell_methodology_drc_routed.rpx
 | Design       : SortingCell
 | Device       : xc7z010clg400-1
@@ -20,7 +20,7 @@ Table of Contents
 1. REPORT SUMMARY
 -----------------
             Netlist: netlist
-          Floorplan: checkpoint_SortingCell
+          Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
              Violations found: 19

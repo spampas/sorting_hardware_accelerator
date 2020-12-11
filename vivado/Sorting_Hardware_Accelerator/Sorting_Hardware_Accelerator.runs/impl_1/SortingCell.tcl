@@ -60,20 +60,21 @@ proc step_failed { step } {
   close $ch
 }
 
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 
 start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param synth.incrementalSynthesisCache C:/Users/loren/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-14216-PC-LORENZO/incrSyn
-  reset_param project.defaultXPMLibraries 
-  open_checkpoint C:/Users/loren/Documents/GitHub/sorting_hardware_accelerator/vivado/Sorting_Hardware_Accelerator/Sorting_Hardware_Accelerator.runs/impl_1/SortingCell.dcp
-  set_property webtalk.parent_dir C:/Users/loren/Documents/GitHub/sorting_hardware_accelerator/vivado/Sorting_Hardware_Accelerator/Sorting_Hardware_Accelerator.cache/wt [current_project]
-  set_property parent.project_path C:/Users/loren/Documents/GitHub/sorting_hardware_accelerator/vivado/Sorting_Hardware_Accelerator/Sorting_Hardware_Accelerator.xpr [current_project]
-  set_property ip_output_repo C:/Users/loren/Documents/GitHub/sorting_hardware_accelerator/vivado/Sorting_Hardware_Accelerator/Sorting_Hardware_Accelerator.cache/ip [current_project]
+  create_project -in_memory -part xc7z010clg400-1
+  set_property design_mode GateLvl [current_fileset]
+  set_param project.singleFileAddWarning.threshold 0
+  set_property webtalk.parent_dir C:/Users/simon/Documents/GitHub/sorting_hardware_accelerator/vivado/Sorting_Hardware_Accelerator/Sorting_Hardware_Accelerator.cache/wt [current_project]
+  set_property parent.project_path C:/Users/simon/Documents/GitHub/sorting_hardware_accelerator/vivado/Sorting_Hardware_Accelerator/Sorting_Hardware_Accelerator.xpr [current_project]
+  set_property ip_output_repo C:/Users/simon/Documents/GitHub/sorting_hardware_accelerator/vivado/Sorting_Hardware_Accelerator/Sorting_Hardware_Accelerator.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
+  add_files -quiet C:/Users/simon/Documents/GitHub/sorting_hardware_accelerator/vivado/Sorting_Hardware_Accelerator/Sorting_Hardware_Accelerator.runs/synth_1/SortingCell.dcp
+  read_xdc C:/Users/simon/Documents/GitHub/sorting_hardware_accelerator/vivado/Sorting_Hardware_Accelerator/Sorting_Hardware_Accelerator.srcs/constrs_1/new/Sorting_Hardware_Accelerator_Constraint.xdc
+  link_design -top SortingCell -part xc7z010clg400-1
   close_msg_db -file init_design.pb
 } RESULT]
 if {$rc} {

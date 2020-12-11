@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Sat Dec  5 16:02:03 2020
-| Host         : PC-LORENZO running 64-bit major release  (build 9200)
+| Date         : Fri Dec 11 12:22:58 2020
+| Host         : DESKTOP-80J60IL running 64-bit major release  (build 9200)
 | Command      : report_clock_utilization -file SortingCell_clock_utilization_routed.rpt
 | Design       : SortingCell
 | Device       : 7z010-clg400
@@ -55,7 +55,7 @@ Table of Contents
 +-----------+-----------+-----------------+------------+-----------+--------------+-------------+-----------------+---------------------+--------------+-----------------+----------+
 | Source Id | Global Id | Driver Type/Pin | Constraint | Site      | Clock Region | Clock Loads | Non-Clock Loads | Source Clock Period | Source Clock | Driver Pin      | Net      |
 +-----------+-----------+-----------------+------------+-----------+--------------+-------------+-----------------+---------------------+--------------+-----------------+----------+
-| src0      | g0        | IBUF/O          | None       | IOB_X0Y28 | X1Y0         |           1 |               0 |               5.612 | PL_clock     | clk_IBUF_inst/O | clk_IBUF |
+| src0      | g0        | IBUF/O          | IOB_X0Y28  | IOB_X0Y28 | X1Y0         |           1 |               0 |               5.612 | PL_clock     | clk_IBUF_inst/O | clk_IBUF |
 +-----------+-----------+-----------------+------------+-----------+--------------+-------------+-----------------+---------------------+--------------+-----------------+----------+
 * Clock Loads column represents the clock pin loads (pin count)
 ** Non-Clock Loads column represents the non-clock pin loads (pin count)

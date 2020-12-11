@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date             : Sat Dec  5 16:02:03 2020
-| Host             : PC-LORENZO running 64-bit major release  (build 9200)
+| Date             : Fri Dec 11 12:22:58 2020
+| Host             : DESKTOP-80J60IL running 64-bit major release  (build 9200)
 | Command          : report_power -file SortingCell_power_routed.rpt -pb SortingCell_power_summary_routed.pb -rpx SortingCell_power_routed.rpx
 | Design           : SortingCell
 | Device           : xc7z010clg400-1
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.096        |
+| Total On-Chip Power (W)  | 0.100        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.005        |
-| Device Static (W)        | 0.091        |
+| Dynamic (W)              | 0.007        |
+| Device Static (W)        | 0.093        |
 | Effective TJA (C/W)      | 11.5         |
-| Max Ambient (C)          | 83.9         |
-| Junction Temperature (C) | 26.1         |
+| Max Ambient (C)          | 83.8         |
+| Junction Temperature (C) | 26.2         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -59,9 +59,9 @@ Table of Contents
 |   Register     |    <0.001 |      155 |     35200 |            0.44 |
 |   Others       |     0.000 |       12 |       --- |             --- |
 | Signals        |    <0.001 |      238 |       --- |             --- |
-| I/O            |     0.001 |       20 |       100 |           20.00 |
-| Static Power   |     0.091 |          |           |                 |
-| Total          |     0.096 |          |           |                 |
+| I/O            |     0.003 |       20 |       100 |           20.00 |
+| Static Power   |     0.093 |          |           |                 |
+| Total          |     0.100 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,9 +73,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Vccint    |       1.000 |     0.007 |       0.004 |      0.004 |
 | Vccaux    |       1.800 |     0.005 |       0.000 |      0.005 |
-| Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |
+| Vcco33    |       3.300 |     0.002 |       0.001 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
-| Vcco18    |       1.800 |     0.002 |       0.001 |      0.001 |
+| Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
@@ -147,7 +147,7 @@ Table of Contents
 +-------------+-----------+
 | Name        | Power (W) |
 +-------------+-----------+
-| SortingCell |     0.005 |
+| SortingCell |     0.007 |
 +-------------+-----------+
 
 

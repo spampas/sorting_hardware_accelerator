@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Sat Dec  5 16:01:38 2020
-| Host         : PC-LORENZO running 64-bit major release  (build 9200)
+| Date         : Fri Dec 11 12:22:41 2020
+| Host         : DESKTOP-80J60IL running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file SortingCell_control_sets_placed.rpt
 | Design       : SortingCell
 | Device       : xc7z010
@@ -63,12 +63,12 @@ Table of Contents
 +----------------+-----------------------------------------------------------------------------+---------------------------------------------------------------------------+------------------+----------------+
 |  clk_IBUF_BUFG | sorting_pipeline[0].first_stage.frist_stage/current_data_0                  | sorting_pipeline[0].first_stage.frist_stage/current_data[7]_i_1__2_n_0    |                2 |              8 |
 |  clk_IBUF_BUFG | sorting_pipeline[0].first_stage.frist_stage/forwarded_data[7]_i_1__3_n_0    | sorting_pipeline[0].first_stage.frist_stage/current_data[7]_i_1__2_n_0    |                3 |              8 |
-|  clk_IBUF_BUFG | sorting_pipeline[1].normal_stage.regular_cells/current_data                 | sorting_pipeline[1].normal_stage.regular_cells/current_data[7]_i_1__1_n_0 |                1 |              8 |
 |  clk_IBUF_BUFG | sorting_pipeline[1].normal_stage.regular_cells/forwarded_data[7]_i_1_n_0    | sorting_pipeline[1].normal_stage.regular_cells/current_data[7]_i_1__1_n_0 |                3 |              8 |
+|  clk_IBUF_BUFG | sorting_pipeline[1].normal_stage.regular_cells/current_data                 | sorting_pipeline[1].normal_stage.regular_cells/current_data[7]_i_1__1_n_0 |                1 |              8 |
 |  clk_IBUF_BUFG | sorting_pipeline[2].normal_stage.regular_cells/forwarded_data[7]_i_1__0_n_0 | sorting_pipeline[2].normal_stage.regular_cells/current_data[7]_i_1__0_n_0 |                3 |              8 |
 |  clk_IBUF_BUFG | sorting_pipeline[2].normal_stage.regular_cells/current_data                 | sorting_pipeline[2].normal_stage.regular_cells/current_data[7]_i_1__0_n_0 |                2 |              8 |
-|  clk_IBUF_BUFG | sorting_pipeline[3].normal_stage.regular_cells/forwarded_data[7]_i_1__1_n_0 | sorting_pipeline[3].normal_stage.regular_cells/current_data[7]_i_1_n_0    |                3 |              8 |
 |  clk_IBUF_BUFG | sorting_pipeline[3].normal_stage.regular_cells/current_data                 | sorting_pipeline[3].normal_stage.regular_cells/current_data[7]_i_1_n_0    |                1 |              8 |
+|  clk_IBUF_BUFG | sorting_pipeline[3].normal_stage.regular_cells/forwarded_data[7]_i_1__1_n_0 | sorting_pipeline[3].normal_stage.regular_cells/current_data[7]_i_1_n_0    |                3 |              8 |
 |  clk_IBUF_BUFG | sorting_pipeline[4].last_stage.last_stage/current_data                      | sorting_pipeline[4].last_stage.last_stage/current_data[7]_i_1__3_n_0      |                3 |              8 |
 |  clk_IBUF_BUFG | sorting_pipeline[4].last_stage.last_stage/forwarded_data[7]_i_1__2_n_0      | sorting_pipeline[4].last_stage.last_stage/current_data[7]_i_1__3_n_0      |                3 |              8 |
 |  clk_IBUF_BUFG |                                                                             |                                                                           |                6 |             11 |

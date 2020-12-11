@@ -2,11 +2,11 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Sat Dec  5 16:00:58 2020
-# Process ID: 3968
-# Current directory: C:/Users/loren/Documents/GitHub/sorting_hardware_accelerator/vivado/Sorting_Hardware_Accelerator/Sorting_Hardware_Accelerator.runs/impl_1
+# Start of session at: Fri Dec 11 12:22:11 2020
+# Process ID: 11192
+# Current directory: C:/Users/simon/Documents/GitHub/sorting_hardware_accelerator/vivado/Sorting_Hardware_Accelerator/Sorting_Hardware_Accelerator.runs/impl_1
 # Command line: vivado.exe -log SortingCell.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source SortingCell.tcl -notrace
-# Log file: C:/Users/loren/Documents/GitHub/sorting_hardware_accelerator/vivado/Sorting_Hardware_Accelerator/Sorting_Hardware_Accelerator.runs/impl_1/SortingCell.vdi
-# Journal file: C:/Users/loren/Documents/GitHub/sorting_hardware_accelerator/vivado/Sorting_Hardware_Accelerator/Sorting_Hardware_Accelerator.runs/impl_1\vivado.jou
+# Log file: C:/Users/simon/Documents/GitHub/sorting_hardware_accelerator/vivado/Sorting_Hardware_Accelerator/Sorting_Hardware_Accelerator.runs/impl_1/SortingCell.vdi
+# Journal file: C:/Users/simon/Documents/GitHub/sorting_hardware_accelerator/vivado/Sorting_Hardware_Accelerator/Sorting_Hardware_Accelerator.runs/impl_1\vivado.jou
 #-----------------------------------------------------------
 source SortingCell.tcl -notrace
