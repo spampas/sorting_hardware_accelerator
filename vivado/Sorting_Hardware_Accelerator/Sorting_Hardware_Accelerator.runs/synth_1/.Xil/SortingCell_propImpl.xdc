@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:C:/Users/simon/Documents/GitHub/sorting_hardware_accelerator/vivado/Sorting_Hardware_Accelerator/Sorting_Hardware_Accelerator.srcs/constrs_1/new/Sorting_Hardware_Accelerator_Constraint.xdc rfile:../../../Sorting_Hardware_Accelerator.srcs/constrs_1/new/Sorting_Hardware_Accelerator_Constraint.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:C:/Users/loren/Documents/GitHub/sorting_hardware_accelerator/vivado/Sorting_Hardware_Accelerator/Sorting_Hardware_Accelerator.srcs/constrs_1/new/Sorting_Hardware_Accelerator_Constraint.xdc rfile:../../../Sorting_Hardware_Accelerator.srcs/constrs_1/new/Sorting_Hardware_Accelerator_Constraint.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:26 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN V18 [get_ports {symbol_in[7]}]
 set_property src_info {type:XDC file:1 line:27 export:INPUT save:INPUT read:READ} [current_design]

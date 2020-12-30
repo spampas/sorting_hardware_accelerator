@@ -6,7 +6,7 @@ use IEEE.numeric_std.all;
 -- The generic N is the number of bits of the unsigned that we want to sort.
 
 --------Sorting Stage Entity ---------------------------------------------------------------
-entity sorting_stage is generic(N: INTEGER := 5);
+entity sorting_stage is generic(N: INTEGER := 8);
 	port(
 		received_data: in std_logic_vector(N-1 downto 0);
 		received_flag: in std_logic; -- '1' when previous stage wants to send data

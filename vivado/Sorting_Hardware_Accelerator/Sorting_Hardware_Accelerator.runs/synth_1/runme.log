@@ -14,29 +14,29 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 6644 
+INFO: Helper process launched with PID 14624 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 429.715 ; gain = 98.523
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 392.063 ; gain = 99.277
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'SortingCell' [C:/Users/simon/Documents/GitHub/sorting_hardware_accelerator/vhdl/SortingCell.vhd:31]
+INFO: [Synth 8-638] synthesizing module 'SortingCell' [C:/Users/loren/Documents/GitHub/sorting_hardware_accelerator/vhdl/SortingCell.vhd:31]
 	Parameter M bound to: 5 - type: integer 
 	Parameter N bound to: 8 - type: integer 
 	Parameter N bound to: 8 - type: integer 
-INFO: [Synth 8-3491] module 'sorting_stage' declared at 'C:/Users/simon/Documents/GitHub/sorting_hardware_accelerator/vhdl/SortingStage.vhd:9' bound to instance 'frist_stage' of component 'sorting_stage' [C:/Users/simon/Documents/GitHub/sorting_hardware_accelerator/vhdl/SortingCell.vhd:74]
-INFO: [Synth 8-638] synthesizing module 'sorting_stage' [C:/Users/simon/Documents/GitHub/sorting_hardware_accelerator/vhdl/SortingStage.vhd:25]
+INFO: [Synth 8-3491] module 'sorting_stage' declared at 'C:/Users/loren/Documents/GitHub/sorting_hardware_accelerator/vhdl/SortingStage.vhd:9' bound to instance 'frist_stage' of component 'sorting_stage' [C:/Users/loren/Documents/GitHub/sorting_hardware_accelerator/vhdl/SortingCell.vhd:74]
+INFO: [Synth 8-638] synthesizing module 'sorting_stage' [C:/Users/loren/Documents/GitHub/sorting_hardware_accelerator/vhdl/SortingStage.vhd:25]
 	Parameter N bound to: 8 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'sorting_stage' (1#1) [C:/Users/simon/Documents/GitHub/sorting_hardware_accelerator/vhdl/SortingStage.vhd:25]
+INFO: [Synth 8-256] done synthesizing module 'sorting_stage' (1#1) [C:/Users/loren/Documents/GitHub/sorting_hardware_accelerator/vhdl/SortingStage.vhd:25]
 	Parameter N bound to: 8 - type: integer 
-INFO: [Synth 8-3491] module 'sorting_stage' declared at 'C:/Users/simon/Documents/GitHub/sorting_hardware_accelerator/vhdl/SortingStage.vhd:9' bound to instance 'regular_cells' of component 'sorting_stage' [C:/Users/simon/Documents/GitHub/sorting_hardware_accelerator/vhdl/SortingCell.vhd:95]
+INFO: [Synth 8-3491] module 'sorting_stage' declared at 'C:/Users/loren/Documents/GitHub/sorting_hardware_accelerator/vhdl/SortingStage.vhd:9' bound to instance 'regular_cells' of component 'sorting_stage' [C:/Users/loren/Documents/GitHub/sorting_hardware_accelerator/vhdl/SortingCell.vhd:95]
 	Parameter N bound to: 8 - type: integer 
-INFO: [Synth 8-3491] module 'sorting_stage' declared at 'C:/Users/simon/Documents/GitHub/sorting_hardware_accelerator/vhdl/SortingStage.vhd:9' bound to instance 'regular_cells' of component 'sorting_stage' [C:/Users/simon/Documents/GitHub/sorting_hardware_accelerator/vhdl/SortingCell.vhd:95]
+INFO: [Synth 8-3491] module 'sorting_stage' declared at 'C:/Users/loren/Documents/GitHub/sorting_hardware_accelerator/vhdl/SortingStage.vhd:9' bound to instance 'regular_cells' of component 'sorting_stage' [C:/Users/loren/Documents/GitHub/sorting_hardware_accelerator/vhdl/SortingCell.vhd:95]
 	Parameter N bound to: 8 - type: integer 
-INFO: [Synth 8-3491] module 'sorting_stage' declared at 'C:/Users/simon/Documents/GitHub/sorting_hardware_accelerator/vhdl/SortingStage.vhd:9' bound to instance 'regular_cells' of component 'sorting_stage' [C:/Users/simon/Documents/GitHub/sorting_hardware_accelerator/vhdl/SortingCell.vhd:95]
+INFO: [Synth 8-3491] module 'sorting_stage' declared at 'C:/Users/loren/Documents/GitHub/sorting_hardware_accelerator/vhdl/SortingStage.vhd:9' bound to instance 'regular_cells' of component 'sorting_stage' [C:/Users/loren/Documents/GitHub/sorting_hardware_accelerator/vhdl/SortingCell.vhd:95]
 	Parameter N bound to: 8 - type: integer 
-INFO: [Synth 8-3491] module 'sorting_stage' declared at 'C:/Users/simon/Documents/GitHub/sorting_hardware_accelerator/vhdl/SortingStage.vhd:9' bound to instance 'last_stage' of component 'sorting_stage' [C:/Users/simon/Documents/GitHub/sorting_hardware_accelerator/vhdl/SortingCell.vhd:85]
-INFO: [Synth 8-256] done synthesizing module 'SortingCell' (2#1) [C:/Users/simon/Documents/GitHub/sorting_hardware_accelerator/vhdl/SortingCell.vhd:31]
+INFO: [Synth 8-3491] module 'sorting_stage' declared at 'C:/Users/loren/Documents/GitHub/sorting_hardware_accelerator/vhdl/SortingStage.vhd:9' bound to instance 'last_stage' of component 'sorting_stage' [C:/Users/loren/Documents/GitHub/sorting_hardware_accelerator/vhdl/SortingCell.vhd:85]
+INFO: [Synth 8-256] done synthesizing module 'SortingCell' (2#1) [C:/Users/loren/Documents/GitHub/sorting_hardware_accelerator/vhdl/SortingCell.vhd:31]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 485.832 ; gain = 154.641
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 448.438 ; gain = 155.652
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -49,49 +49,49 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 485.832 ; gain = 154.641
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 448.438 ; gain = 155.652
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 485.832 ; gain = 154.641
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 448.438 ; gain = 155.652
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z010clg400-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/simon/Documents/GitHub/sorting_hardware_accelerator/vivado/Sorting_Hardware_Accelerator/Sorting_Hardware_Accelerator.srcs/constrs_1/new/Sorting_Hardware_Accelerator_Constraint.xdc]
-Finished Parsing XDC File [C:/Users/simon/Documents/GitHub/sorting_hardware_accelerator/vivado/Sorting_Hardware_Accelerator/Sorting_Hardware_Accelerator.srcs/constrs_1/new/Sorting_Hardware_Accelerator_Constraint.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/simon/Documents/GitHub/sorting_hardware_accelerator/vivado/Sorting_Hardware_Accelerator/Sorting_Hardware_Accelerator.srcs/constrs_1/new/Sorting_Hardware_Accelerator_Constraint.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/SortingCell_propImpl.xdc].
+Parsing XDC File [C:/Users/loren/Documents/GitHub/sorting_hardware_accelerator/vivado/Sorting_Hardware_Accelerator/Sorting_Hardware_Accelerator.srcs/constrs_1/new/Sorting_Hardware_Accelerator_Constraint.xdc]
+Finished Parsing XDC File [C:/Users/loren/Documents/GitHub/sorting_hardware_accelerator/vivado/Sorting_Hardware_Accelerator/Sorting_Hardware_Accelerator.srcs/constrs_1/new/Sorting_Hardware_Accelerator_Constraint.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/loren/Documents/GitHub/sorting_hardware_accelerator/vivado/Sorting_Hardware_Accelerator/Sorting_Hardware_Accelerator.srcs/constrs_1/new/Sorting_Hardware_Accelerator_Constraint.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/SortingCell_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/SortingCell_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 827.445 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 788.309 ; gain = 0.000
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 827.445 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 788.309 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 827.445 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 827.445 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 788.309 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 788.309 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 827.445 ; gain = 496.254
+Finished Constraint Validation : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 788.309 ; gain = 495.523
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 827.445 ; gain = 496.254
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 788.309 ; gain = 495.523
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 827.445 ; gain = 496.254
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 788.309 ; gain = 495.523
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5545] ROM "counter" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "serving_data_request" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 827.445 ; gain = 496.254
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 788.309 ; gain = 495.523
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -150,7 +150,7 @@ Start Cross Boundary and Area Optimization
 Warning: Parallel synthesis criteria is not met 
 INFO: [Synth 8-5545] ROM "counter" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 827.445 ; gain = 496.254
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 788.309 ; gain = 495.523
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -162,13 +162,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 827.445 ; gain = 496.254
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 788.309 ; gain = 495.523
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 847.785 ; gain = 516.594
+Finished Timing Optimization : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 804.621 ; gain = 511.836
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -180,7 +180,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 849.742 ; gain = 518.551
+Finished Technology Mapping : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 806.855 ; gain = 514.070
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -204,7 +204,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 849.742 ; gain = 518.551
+Finished IO Insertion : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 806.855 ; gain = 514.070
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -217,7 +217,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 849.742 ; gain = 518.551
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 806.855 ; gain = 514.070
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -229,25 +229,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 849.742 ; gain = 518.551
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 806.855 ; gain = 514.070
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 849.742 ; gain = 518.551
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 806.855 ; gain = 514.070
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 849.742 ; gain = 518.551
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 806.855 ; gain = 514.070
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 849.742 ; gain = 518.551
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 806.855 ; gain = 514.070
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -288,27 +288,27 @@ Report Instance Areas:
 |6     |  \sorting_pipeline[4].last_stage.last_stage       |sorting_stage_3 |    50|
 +------+---------------------------------------------------+----------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 849.742 ; gain = 518.551
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 806.855 ; gain = 514.070
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:12 ; elapsed = 00:00:16 . Memory (MB): peak = 849.742 ; gain = 176.938
-Synthesis Optimization Complete : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 849.742 ; gain = 518.551
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:26 ; elapsed = 00:00:33 . Memory (MB): peak = 806.855 ; gain = 174.199
+Synthesis Optimization Complete : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 806.855 ; gain = 514.070
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 21 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 849.742 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 806.855 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
 24 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 849.742 ; gain = 531.574
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 849.742 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:45 ; elapsed = 00:00:48 . Memory (MB): peak = 806.855 ; gain = 527.074
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 806.855 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
-INFO: [Common 17-1381] The checkpoint 'C:/Users/simon/Documents/GitHub/sorting_hardware_accelerator/vivado/Sorting_Hardware_Accelerator/Sorting_Hardware_Accelerator.runs/synth_1/SortingCell.dcp' has been generated.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/loren/Documents/GitHub/sorting_hardware_accelerator/vivado/Sorting_Hardware_Accelerator/Sorting_Hardware_Accelerator.runs/synth_1/SortingCell.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file SortingCell_utilization_synth.rpt -pb SortingCell_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Dec 11 12:21:53 2020...
+INFO: [Common 17-206] Exiting Vivado at Wed Dec 30 21:33:56 2020...

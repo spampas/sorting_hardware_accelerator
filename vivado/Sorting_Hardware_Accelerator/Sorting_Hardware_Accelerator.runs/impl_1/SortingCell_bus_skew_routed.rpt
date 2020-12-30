@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Fri Dec 11 12:22:58 2020
-| Host         : DESKTOP-80J60IL running 64-bit major release  (build 9200)
+| Date         : Wed Dec 30 21:35:49 2020
+| Host         : PC-LORENZO running 64-bit major release  (build 9200)
 | Command      : report_bus_skew -warn_on_violation -file SortingCell_bus_skew_routed.rpt -pb SortingCell_bus_skew_routed.pb -rpx SortingCell_bus_skew_routed.rpx
 | Design       : SortingCell
 | Device       : 7z010-clg400
