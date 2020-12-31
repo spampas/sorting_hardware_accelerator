@@ -1,4 +1,4 @@
-create_clock -period 5.612 -name PL_clock -waveform {0.000 2.806} -add [get_ports clk]
+create_clock -period 8.000 -name PL_clock -waveform {0.000 4.000} -add [get_ports clk]
 
 
 
@@ -43,3 +43,7 @@ set_property PACKAGE_PIN U14 [get_ports clk]
 set_property PACKAGE_PIN V17 [get_ports read_symbols]
 set_property PACKAGE_PIN R18 [get_ports rst]
 set_property PACKAGE_PIN T17 [get_ports write_enable]
+
+
+
+

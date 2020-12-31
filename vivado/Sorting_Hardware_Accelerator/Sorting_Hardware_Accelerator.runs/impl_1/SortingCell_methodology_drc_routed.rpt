@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Wed Dec 30 21:35:49 2020
+| Date         : Thu Dec 31 11:53:49 2020
 | Host         : PC-LORENZO running 64-bit major release  (build 9200)
 | Command      : report_methodology -file SortingCell_methodology_drc_routed.rpt -pb SortingCell_methodology_drc_routed.pb -rpx SortingCell_methodology_drc_routed.rpx
 | Design       : SortingCell

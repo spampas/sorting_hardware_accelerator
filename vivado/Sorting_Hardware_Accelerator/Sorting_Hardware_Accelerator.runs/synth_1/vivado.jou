@@ -2,8 +2,8 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Wed Dec 30 21:33:01 2020
-# Process ID: 10428
+# Start of session at: Thu Dec 31 11:51:09 2020
+# Process ID: 20172
 # Current directory: C:/Users/loren/Documents/GitHub/sorting_hardware_accelerator/vivado/Sorting_Hardware_Accelerator/Sorting_Hardware_Accelerator.runs/synth_1
 # Command line: vivado.exe -log SortingCell.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source SortingCell.tcl
 # Log file: C:/Users/loren/Documents/GitHub/sorting_hardware_accelerator/vivado/Sorting_Hardware_Accelerator/Sorting_Hardware_Accelerator.runs/synth_1/SortingCell.vds
