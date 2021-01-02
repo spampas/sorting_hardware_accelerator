@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Thu Dec 31 11:53:16 2020
+| Date         : Sat Jan  2 17:28:56 2021
 | Host         : PC-LORENZO running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file SortingCell_control_sets_placed.rpt
 | Design       : SortingCell
@@ -23,8 +23,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    13 |
-| Unused register locations in slices containing registers |     5 |
+| Number of unique control sets                            |    23 |
+| Unused register locations in slices containing registers |     3 |
 +----------------------------------------------------------+-------+
 
 
@@ -34,9 +34,8 @@ Table of Contents
 +--------+--------------+
 | Fanout | Control Sets |
 +--------+--------------+
-|      8 |           10 |
-|     11 |            1 |
-|    16+ |            2 |
+|      8 |           20 |
+|    16+ |            3 |
 +--------+--------------+
 
 
@@ -46,12 +45,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              11 |            5 |
+| No           | No                    | No                     |              21 |           10 |
 | No           | No                    | Yes                    |               0 |            0 |
 | No           | Yes                   | No                     |              32 |            8 |
 | Yes          | No                    | No                     |               0 |            0 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |             112 |           33 |
+| Yes          | Yes                   | No                     |             192 |           55 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -61,17 +60,27 @@ Table of Contents
 +----------------+-----------------------------------------------------------------------------+---------------------------------------------------------------------------+------------------+----------------+
 |  Clock Signal  |                                Enable Signal                                |                              Set/Reset Signal                             | Slice Load Count | Bel Load Count |
 +----------------+-----------------------------------------------------------------------------+---------------------------------------------------------------------------+------------------+----------------+
-|  clk_IBUF_BUFG | sorting_pipeline[0].first_stage.frist_stage/current_data_0                  | sorting_pipeline[0].first_stage.frist_stage/current_data[7]_i_1__2_n_0    |                2 |              8 |
-|  clk_IBUF_BUFG | sorting_pipeline[0].first_stage.frist_stage/forwarded_data[7]_i_1__3_n_0    | sorting_pipeline[0].first_stage.frist_stage/current_data[7]_i_1__2_n_0    |                3 |              8 |
-|  clk_IBUF_BUFG | sorting_pipeline[1].normal_stage.regular_cells/current_data                 | sorting_pipeline[1].normal_stage.regular_cells/current_data[7]_i_1__1_n_0 |                2 |              8 |
-|  clk_IBUF_BUFG | sorting_pipeline[1].normal_stage.regular_cells/forwarded_data[7]_i_1_n_0    | sorting_pipeline[1].normal_stage.regular_cells/current_data[7]_i_1__1_n_0 |                4 |              8 |
-|  clk_IBUF_BUFG | sorting_pipeline[2].normal_stage.regular_cells/current_data                 | sorting_pipeline[2].normal_stage.regular_cells/current_data[7]_i_1__0_n_0 |                2 |              8 |
-|  clk_IBUF_BUFG | sorting_pipeline[2].normal_stage.regular_cells/forwarded_data[7]_i_1__0_n_0 | sorting_pipeline[2].normal_stage.regular_cells/current_data[7]_i_1__0_n_0 |                2 |              8 |
-|  clk_IBUF_BUFG | sorting_pipeline[3].normal_stage.regular_cells/forwarded_data[7]_i_1__1_n_0 | sorting_pipeline[3].normal_stage.regular_cells/current_data[7]_i_1_n_0    |                3 |              8 |
-|  clk_IBUF_BUFG | sorting_pipeline[3].normal_stage.regular_cells/current_data                 | sorting_pipeline[3].normal_stage.regular_cells/current_data[7]_i_1_n_0    |                2 |              8 |
-|  clk_IBUF_BUFG | sorting_pipeline[4].last_stage.last_stage/current_data                      | sorting_pipeline[4].last_stage.last_stage/current_data[7]_i_1__3_n_0      |                2 |              8 |
-|  clk_IBUF_BUFG | sorting_pipeline[4].last_stage.last_stage/forwarded_data[7]_i_1__2_n_0      | sorting_pipeline[4].last_stage.last_stage/current_data[7]_i_1__3_n_0      |                3 |              8 |
-|  clk_IBUF_BUFG |                                                                             |                                                                           |                5 |             11 |
+|  clk_IBUF_BUFG | sorting_pipeline[2].normal_stage.regular_cells/forwarded_data[7]_i_1__1_n_0 | sorting_pipeline[2].normal_stage.regular_cells/current_data[7]_i_1__4_n_0 |                2 |              8 |
+|  clk_IBUF_BUFG | sorting_pipeline[3].normal_stage.regular_cells/current_data[7]_i_2__2_n_0   | sorting_pipeline[3].normal_stage.regular_cells/current_data[7]_i_1__3_n_0 |                3 |              8 |
+|  clk_IBUF_BUFG | sorting_pipeline[3].normal_stage.regular_cells/forwarded_data[7]_i_1__2_n_0 | sorting_pipeline[3].normal_stage.regular_cells/current_data[7]_i_1__3_n_0 |                4 |              8 |
+|  clk_IBUF_BUFG | sorting_pipeline[4].normal_stage.regular_cells/current_data[7]_i_2__3_n_0   | sorting_pipeline[4].normal_stage.regular_cells/current_data[7]_i_1__2_n_0 |                2 |              8 |
+|  clk_IBUF_BUFG | sorting_pipeline[4].normal_stage.regular_cells/forwarded_data[7]_i_1__3_n_0 | sorting_pipeline[4].normal_stage.regular_cells/current_data[7]_i_1__2_n_0 |                2 |              8 |
+|  clk_IBUF_BUFG | sorting_pipeline[5].normal_stage.regular_cells/current_data[7]_i_2__4_n_0   | sorting_pipeline[5].normal_stage.regular_cells/current_data[7]_i_1__1_n_0 |                2 |              8 |
+|  clk_IBUF_BUFG | sorting_pipeline[5].normal_stage.regular_cells/forwarded_data[7]_i_1__4_n_0 | sorting_pipeline[5].normal_stage.regular_cells/current_data[7]_i_1__1_n_0 |                3 |              8 |
+|  clk_IBUF_BUFG | sorting_pipeline[6].normal_stage.regular_cells/forwarded_data[7]_i_1__5_n_0 | sorting_pipeline[6].normal_stage.regular_cells/current_data[7]_i_1__0_n_0 |                2 |              8 |
+|  clk_IBUF_BUFG | sorting_pipeline[6].normal_stage.regular_cells/current_data[7]_i_2__5_n_0   | sorting_pipeline[6].normal_stage.regular_cells/current_data[7]_i_1__0_n_0 |                3 |              8 |
+|  clk_IBUF_BUFG | sorting_pipeline[7].normal_stage.regular_cells/current_data[7]_i_2__6_n_0   | sorting_pipeline[7].normal_stage.regular_cells/current_data[7]_i_1_n_0    |                2 |              8 |
+|  clk_IBUF_BUFG | sorting_pipeline[7].normal_stage.regular_cells/forwarded_data[7]_i_1__6_n_0 | sorting_pipeline[7].normal_stage.regular_cells/current_data[7]_i_1_n_0    |                2 |              8 |
+|  clk_IBUF_BUFG | sorting_pipeline[8].normal_stage.regular_cells/forwarded_data[7]_i_1__7_n_0 | sorting_pipeline[8].normal_stage.regular_cells/current_data[7]_i_1__8_n_0 |                3 |              8 |
+|  clk_IBUF_BUFG | sorting_pipeline[8].normal_stage.regular_cells/current_data[7]_i_2__7_n_0   | sorting_pipeline[8].normal_stage.regular_cells/current_data[7]_i_1__8_n_0 |                2 |              8 |
+|  clk_IBUF_BUFG | sorting_pipeline[9].last_stage.last_stage/current_data[7]_i_2__8_n_0        | sorting_pipeline[9].last_stage.last_stage/current_data[7]_i_1__7_n_0      |                2 |              8 |
+|  clk_IBUF_BUFG | sorting_pipeline[9].last_stage.last_stage/forwarded_data[7]_i_1__8_n_0      | sorting_pipeline[9].last_stage.last_stage/current_data[7]_i_1__7_n_0      |                3 |              8 |
+|  clk_IBUF_BUFG | sorting_pipeline[0].first_stage.frist_stage/current_data[7]_i_2_n_0         | sorting_pipeline[0].first_stage.frist_stage/current_data[7]_i_1__6_n_0    |                2 |              8 |
+|  clk_IBUF_BUFG | sorting_pipeline[0].first_stage.frist_stage/forwarded_data[7]_i_1_n_0       | sorting_pipeline[0].first_stage.frist_stage/current_data[7]_i_1__6_n_0    |                2 |              8 |
+|  clk_IBUF_BUFG | sorting_pipeline[1].normal_stage.regular_cells/current_data[7]_i_2__0_n_0   | sorting_pipeline[1].normal_stage.regular_cells/current_data[7]_i_1__5_n_0 |                2 |              8 |
+|  clk_IBUF_BUFG | sorting_pipeline[1].normal_stage.regular_cells/forwarded_data[7]_i_1__0_n_0 | sorting_pipeline[1].normal_stage.regular_cells/current_data[7]_i_1__5_n_0 |                2 |              8 |
+|  clk_IBUF_BUFG | sorting_pipeline[2].normal_stage.regular_cells/current_data[7]_i_2__1_n_0   | sorting_pipeline[2].normal_stage.regular_cells/current_data[7]_i_1__4_n_0 |                2 |              8 |
+|  clk_IBUF_BUFG |                                                                             |                                                                           |               10 |             21 |
 |  clk_IBUF_BUFG |                                                                             | actual_output[0]_i_1_n_0                                                  |                8 |             32 |
 |  clk_IBUF_BUFG | sorting_pipeline[0].first_stage.frist_stage/write_enable                    | counter[0]_i_1_n_0                                                        |                8 |             32 |
 +----------------+-----------------------------------------------------------------------------+---------------------------------------------------------------------------+------------------+----------------+
