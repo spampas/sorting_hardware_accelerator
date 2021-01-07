@@ -10,8 +10,8 @@ use IEEE.numeric_std.all;
 
 -- SortingCell entity ---------------------------------------------------------------
 
--- entity SortingCell is generic( M: INTEGER := 10; N: INTEGER := 8); --testbench
-entity SortingCell is generic( M: INTEGER := 10; N: INTEGER := 8); --synthezis
+entity SortingCell is generic( M: INTEGER := 5; N: INTEGER := 8); --testbench
+-- entity SortingCell is generic( M: INTEGER := 10; N: INTEGER := 8); --synthezis
 
 	port(
 

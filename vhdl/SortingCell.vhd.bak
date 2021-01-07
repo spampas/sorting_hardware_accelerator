@@ -10,7 +10,8 @@ use IEEE.numeric_std.all;
 
 -- SortingCell entity ---------------------------------------------------------------
 
-entity SortingCell is generic( M: INTEGER := 5; N: INTEGER := 16);
+-- entity SortingCell is generic( M: INTEGER := 10; N: INTEGER := 8); --testbench
+entity SortingCell is generic( M: INTEGER := 10; N: INTEGER := 8); --synthezis
 
 	port(
 
@@ -33,7 +34,7 @@ architecture bhv of SortingCell is
 	-- stage component neeeded
 	component sorting_stage 
 
-		generic(N: INTEGER := 16);
+		generic(N: INTEGER := 8);
 		port(
 			received_data: in std_logic_vector(N-1 downto 0);
 			received_flag: in std_logic;
